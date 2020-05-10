@@ -17,18 +17,21 @@ service: bumblebee
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
 
+deploy:
+  runFromBlobUrl: false
+
 provider:
   name: azure
-  region: West US 2
-  runtime: nodejs12.x
-  # prefix: "sample"  # prefix of generated resource name
-  # subscriptionId: A356AC8C-E310-44F4-BF85-C7F29044AF99
-  # stage: dev
+  region: East US
+  runtime: nodejs10.X
+  prefix: "bumblebee" # prefix of generated resource name
+  subscriptionId: 0861f33c-7592-447c-8589-732828fc2da7
+  stage: dev
   # type: premium  # premium azure functions
-
-  environment: # these will be created as application settings
-    VARIABLE_FOO: 'foo'
-
+  #
+  # environment: # these will be created as application settings
+  #   VARIABLE_FOO: "foo"
+  #
   # you can define apim configuration here
   # apim:
   #   apis:
@@ -73,22 +76,22 @@ package:
     - .vscode/**
 
 functions:
-  hello:
-    handler: src/handlers/hello.sayHello
+  sms:
+    handler: src/handlers/sms.handler
     events:
       - http: true
         x-azure-settings:
           methods:
-            - GET
-          authLevel: anonymous # can also be `function` or `admin`
+            - POST
+          authLevel: anonymous
 
-  goodbye:
-    handler: src/handlers/goodbye.sayGoodbye
+  voice:
+    handler: src/handlers/voice.handler
     events:
       - http: true
         x-azure-settings:
           methods:
-            - GET
+            - POST
           authLevel: anonymous
   # The following are a few examples of other events you can configure:
   # storageBlob:
