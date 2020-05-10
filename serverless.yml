@@ -29,7 +29,21 @@ provider:
   stage: dev
   # type: premium  # premium azure functions
   #
-  environment: ${file(./env/local.json), env}
+  environment:
+    AZURE_CLIENT_ID: ${file(./env/local.json):AZURE_CLIENT_ID, env:AZURE_CLIENT_ID}
+    AZURE_CLIENT_SECRET: ${file(./env/local.json):AZURE_CLIENT_SECRET, env:AZURE_CLIENT_SECRET}
+    AZURE_SUBSCRIPTION_ID: ${file(./env/local.json):AZURE_SUBSCRIPTION_ID, env:AZURE_SUBSCRIPTION_ID}
+    AZURE_TENANT_ID: ${file(./env/local.json):AZURE_TENANT_ID, env:AZURE_TENANT_ID}
+    BUZZER_NUMBER: ${file(./env/local.json):BUZZER_NUMBER, env:BUZZER_NUMBER}
+    FIREBASE_URL: ${file(./env/local.json):FIREBASE_URL, env:FIREBASE_URL}
+    FIREBASE_PROJECT_ID: ${file(./env/local.json):FIREBASE_PROJECT_ID, env:FIREBASE_PROJECT_ID}
+    FIREBASE_CLIENT_EMAIL: ${file(./env/local.json):FIREBASE_CLIENT_EMAIL, env:FIREBASE_CLIENT_EMAIL}
+    FIREBASE_PRIVATE_KEY: ${file(./env/local.json):FIREBASE_PRIVATE_KEY, env:FIREBASE_PRIVATE_KEY}
+    TWILIO_ACCOUNT_SID: ${file(./env/local.json):TWILIO_ACCOUNT_SID, env:TWILIO_ACCOUNT_SID}
+    TWILIO_AUTH_TOKEN: ${file(./env/local.json):TWILIO_AUTH_TOKEN, env:TWILIO_AUTH_TOKEN}
+    TWILIO_NUMBER: ${file(./env/local.json):TWILIO_NUMBER, env:TWILIO_NUMBER}
+    URL: ${file(./env/local.json):URL, env:URL}
+
   #
   # you can define apim configuration here
   # apim:
