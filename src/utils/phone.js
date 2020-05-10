@@ -11,8 +11,8 @@ module.exports.forwardCall = (forwardNumbers) => {
 
 module.exports.pressBuzz = async (forwardNumbers) => {
   const client = twilio(
-    process.env.twilioAccountSid,
-    process.env.twilioAuthToken
+    process.env.TWILIO_ACCOUNT_SID,
+    process.env.TWILIO_AUTH_TOKEN
   );
 
   console.log("Sending buzzed in SMS");
@@ -20,7 +20,7 @@ module.exports.pressBuzz = async (forwardNumbers) => {
     forwardNumbers.map(async (number) => {
       client.messages.create({
         body: "Buzzing in! 🐝",
-        from: process.env.twilioNumber,
+        from: process.env.TWILIO_NUMBER,
         to: number,
       });
     })

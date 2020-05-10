@@ -3,9 +3,9 @@ const { pressBuzz } = require("../utils/phone");
 
 admin.initializeApp({
   credential: admin.credential.cert(
-    JSON.parse(process.env.googleServiceAccountKey)
+    JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_KEY)
   ),
-  databaseURL: process.env.databaseURL,
+  databaseURL: process.env.DATABASE_URL,
 });
 const db = admin.database();
 const ref = db.ref();

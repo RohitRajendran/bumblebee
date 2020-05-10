@@ -8,9 +8,9 @@ module.exports.validateTwilioWebhook = (handler) => async (context, req) => {
   const params = queryString.parse(req.body);
 
   const requestIsValid = twilio.validateRequest(
-    process.env.twilioAuthToken,
+    process.env.TWILIO_AUTH_TOKEN,
     twilioSignature,
-    process.env.url,
+    process.env.URL,
     params
   );
 

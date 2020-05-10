@@ -11,7 +11,7 @@ const handler = async (context, req) => {
 
   const parsedBody = queryString.parse(req.body);
 
-  if (parsedBody.From === process.env.buzzerNumber) {
+  if (parsedBody.From === process.env.BUZZER_NUMBER) {
     const activeRequest = await findActiveAccessRequest();
 
     if (activeRequest) {
