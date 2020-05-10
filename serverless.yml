@@ -25,12 +25,11 @@ provider:
   region: East US
   runtime: nodejs10.X
   prefix: "bumblebee" # prefix of generated resource name
-  subscriptionId: 0861f33c-7592-447c-8589-732828fc2da7
+  subscriptionId: ${file(./env/local.json):AZURE_SUBSCRIPTION_ID, env:AZURE_SUBSCRIPTION_ID}
   stage: dev
   # type: premium  # premium azure functions
   #
-  # environment: # these will be created as application settings
-  #   VARIABLE_FOO: "foo"
+  environment: ${file(./env/local.json), env}
   #
   # you can define apim configuration here
   # apim:
