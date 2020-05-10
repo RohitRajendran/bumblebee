@@ -19,6 +19,7 @@
     "twilio": "3.43.0"
   },
   "devDependencies": {
+    "serverless": "1.70.0",
     "serverless-azure-functions": "1.0.2-19",
     "prettier": "2.0.5"
   }
