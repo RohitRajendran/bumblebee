@@ -25,7 +25,16 @@ module.exports.validateTwilioWebhook = (handler) => async (context, req) => {
   } else {
     console.log("Authorized request");
 
-    await handler(context, req);
-    context.done();
+    try {
+      await handler(context, req);
+    } catch (err) {
+      console.error(err.message, err);
+      context.res = {
+        status: 500,
+        body: err.message,
+      };
+    } finally {
+      context.done();
+    }
   }
 };
