@@ -1,7 +1,10 @@
 const twilio = require("twilio");
 const queryString = require("query-string");
 
-module.exports.validateTwilioWebhook = (handler) => async (context, req) => {
+module.exports.validateTwilioWebhook = (handler, endpointUrl) => async (
+  context,
+  req
+) => {
   console.log("Validating webhook request");
   const twilioSignature = req.headers["x-twilio-signature"];
 
@@ -10,7 +13,7 @@ module.exports.validateTwilioWebhook = (handler) => async (context, req) => {
   const requestIsValid = twilio.validateRequest(
     process.env.TWILIO_AUTH_TOKEN,
     twilioSignature,
-    process.env.URL,
+    `${process.env.URL}/api/${endpointUrl}`,
     params
   );
 

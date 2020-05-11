@@ -27,4 +27,4 @@ const handler = async (context, req) => {
   };
 };
 
-module.exports.handler = validateTwilioWebhook(handler);
+module.exports.handler = validateTwilioWebhook(handler, "voice");
