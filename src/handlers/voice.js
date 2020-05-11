@@ -10,15 +10,20 @@ const handler = async (context, req) => {
 
   const parsedBody = queryString.parse(req.body);
 
+  // Check if coming from buzzer
   if (parsedBody.From === process.env.BUZZER_NUMBER) {
+    // Check if bumblebee is active
     const activeRequest = await findActiveAccessRequest();
 
     if (activeRequest) {
+      // Buzz in if active
+      const response = await buzz(activeRequest);
+
       context.res = {
         headers: {
           "content-type": "text/xml",
         },
-        body: await buzz(activeRequest),
+        body: response,
       };
       return context.done();
     }

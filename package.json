@@ -13,6 +13,7 @@
   ],
   "dependencies": {
     "date-fns": "2.13.0",
+    "date-fns-tz": "1.0.10",
     "firebase-admin": "8.12.1",
     "got": "11.0.2",
     "query-string": "6.12.1",
