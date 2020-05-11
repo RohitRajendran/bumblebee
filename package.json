@@ -12,10 +12,10 @@
     "serverless"
   ],
   "dependencies": {
-    "date-fns": "2.13.0",
-    "date-fns-tz": "1.0.10",
     "firebase-admin": "8.12.1",
     "got": "11.0.2",
+    "moment": "2.25.3",
+    "moment-timezone": "0.5.28",
     "query-string": "6.12.1",
     "twilio": "3.43.0"
   },

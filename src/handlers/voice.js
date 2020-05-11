@@ -6,7 +6,7 @@ const { findActiveAccessRequest, buzz } = require("../utils/db");
 const { forwardCall } = require("../utils/phone");
 
 const handler = async (context, req) => {
-  context.log("Received SMS");
+  context.log("Received call");
 
   const parsedBody = queryString.parse(req.body);
 

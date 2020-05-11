@@ -6,7 +6,15 @@
 - Firebase Realtime DB
 - NodeJS
 
+## Running Locally
+
+1. Install dependencies with `npm i`
+1. Convert `local.sample.json` to `local.json` and fill in the env variables
+1. To run locally: `npm start`
+
 ## Env Variables
+
+Pass these in as env variables during build or convert `local.sample.json` to `local.json` for running locally
 
 - `AZURE_CLIENT_ID` - Azure client id
 - `AZURE_CLIENT_SECRET` - Azure client secret
@@ -21,11 +29,6 @@
 - `TWILIO_AUTH_TOKEN` - Twilio auth token
 - `TWILIO_NUMBER` - Twilio phone number
 - `URL` - Url for where this is deployed
-
-## Getting Started
-
-1. Install dependencies with `npm i`
-1. To run locally: `npm start`
 
 ## Azure Functions
 

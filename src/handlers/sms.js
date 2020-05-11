@@ -1,11 +1,10 @@
 "use strict";
 
 const { addRequest } = require("../utils/db");
-const { format, addMinutes } = require("date-fns");
-const { utcToZonedTime } = require("date-fns-tz");
 const { validateTwilioWebhook } = require("../utils/helpers");
 const queryString = require("query-string");
 const twilio = require("twilio");
+const moment = require("moment-timezone");
 
 const handler = async (context, req) => {
   context.log("Received SMS");
@@ -13,8 +12,10 @@ const handler = async (context, req) => {
   const parsedBody = queryString.parse(req.body);
 
   // Add parsed minutes to current time as EST
-  const currTime = utcToZonedTime(new Date().toUTCString(), "America/New_York");
-  const toTimestamp = addMinutes(currTime, parseInt(parsedBody.Body));
+  const toTimestamp = moment()
+    .tz("America/New_York")
+    .add(parseInt(parsedBody.Body), "m")
+    .toDate();
 
   // Add request to DB
   await addRequest({
