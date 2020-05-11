@@ -7,7 +7,6 @@ const { forwardCall } = require("../utils/phone");
 
 const handler = async (context, req) => {
   context.log("Received SMS");
-  let responseBody;
 
   const parsedBody = queryString.parse(req.body);
 
@@ -15,15 +14,27 @@ const handler = async (context, req) => {
     const activeRequest = await findActiveAccessRequest();
 
     if (activeRequest) {
-      responseBody = await buzz(activeRequest);
+      context.res = {
+        headers: {
+          "content-type": "text/xml",
+        },
+        body: await buzz(activeRequest),
+      };
+      return context.done();
     }
   }
+
+  // No active request so forward numbers
+  const users = await this.getUsers();
+  const forwardNumbers = Object.values(users).map(
+    ({ phoneNumber }) => phoneNumber
+  );
 
   context.res = {
     headers: {
       "content-type": "text/xml",
     },
-    body: responseBody || forwardCall(),
+    body: forwardCall(forwardNumbers),
   };
 };
 
