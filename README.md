@@ -5,6 +5,7 @@
 - Azure
 - Firebase Realtime DB
 - NodeJS
+- Twilio
 
 ## Running Locally
 
@@ -28,7 +29,7 @@ Pass these in as env variables during build or convert `local.sample.json` to `l
 - `TWILIO_ACCOUNT_SID` - Twilio account SID
 - `TWILIO_AUTH_TOKEN` - Twilio auth token
 - `TWILIO_NUMBER` - Twilio phone number
-- `URL` - Url for where this is deployed
+- `URL` - Base endpoint url
 
 ## Azure Functions
 

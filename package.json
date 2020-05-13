@@ -5,7 +5,9 @@
   "scripts": {
     "test": "echo \"No tests yet...\"",
     "start": "sls offline && func host start",
-    "deploy": "serverless deploy"
+    "deploy": "serverless deploy",
+    "lint": "eslint 'src/**/*.js' && prettier -l './src/**/*.js' 'serverless.yml' 'README.md'",
+    "format": "prettier --write './src/**/*.js' 'serverless.yml' 'README.md'"
   },
   "keywords": [
     "azure",
