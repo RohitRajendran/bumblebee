@@ -1,0 +1,7 @@
+{
+  "extends": ["airbnb-base", "plugin:prettier/recommended"],
+  "rules": {
+    "no-param-reassign": "off",
+    "no-console": "off"
+  }
+}

@@ -1,5 +1,5 @@
 const admin = require("firebase-admin");
-const { pressBuzz } = require("../utils/phone");
+const { pressBuzz } = require("./phone");
 
 admin.initializeApp({
   credential: admin.credential.cert({
@@ -88,6 +88,7 @@ module.exports.findActiveAccessRequest = async () => {
   }
 
   console.log("No active requests found");
+  return null;
 };
 
 module.exports.buzz = async (activeRequest) => {

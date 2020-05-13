@@ -1,7 +1,7 @@
 const twilio = require("twilio");
 
 module.exports.forwardCall = (forwardNumbers) => {
-  const VoiceResponse = twilio.twiml.VoiceResponse;
+  const { VoiceResponse } = twilio.twiml;
 
   const response = new VoiceResponse();
   forwardNumbers.map((num) => response.dial(num));
@@ -26,7 +26,7 @@ module.exports.pressBuzz = async (forwardNumbers) => {
     })
   );
 
-  const VoiceResponse = twilio.twiml.VoiceResponse;
+  const { VoiceResponse } = twilio.twiml;
 
   const response = new VoiceResponse();
   response.play({ digits: 9 });
