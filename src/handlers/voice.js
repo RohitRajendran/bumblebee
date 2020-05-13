@@ -1,6 +1,6 @@
 const queryString = require("query-string");
 const { validateTwilioWebhook } = require("../utils/helpers");
-const { findActiveAccessRequest, buzz } = require("../utils/db");
+const { findActiveAccessRequest, buzz, getUsers } = require("../utils/db");
 const { forwardCall } = require("../utils/phone");
 
 const handler = async (context, req) => {
@@ -34,7 +34,7 @@ const handler = async (context, req) => {
 
   // No active request so forward numbers
   console.log("Forward call");
-  const users = await this.getUsers();
+  const users = await getUsers();
   const forwardNumbers = Object.values(users).map(
     ({ phoneNumber }) => phoneNumber
   );
