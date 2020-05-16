@@ -19,7 +19,7 @@
     "moment": "2.25.3",
     "moment-timezone": "0.5.28",
     "query-string": "6.12.1",
-    "twilio": "3.43.0"
+    "twilio": "3.43.1"
   },
   "devDependencies": {
     "eslint": "7.0.0",
