@@ -2,11 +2,13 @@
 
 ![Node.js CI](https://github.com/RohitRajendran/bumblebee/workflows/Node.js%20CI/badge.svg)
 
-Have one of those directories in your building that calls your phone to buzz people in? Tired of having to answer the phone and pressing 9 everytime you need to let someone in? Now Bumblebee can take care of that for you! Using Twilio and Azure Functions (through the Serverless Framework), you can text the Twilio number to set time periods that Bumblebee should automatically buzz people in. Any calls when Bumblebee is not active will automatically forward to your phone.
+Have one of those directories in your building that calls your phone to buzz people in? Too lazy to answer the phone and press 9 everytime you need to let someone in? Now Bumblebee can take care of that for you! Using Twilio and Azure Functions, you can text the Twilio number to set time periods that Bumblebee should automatically buzz people in. Any calls when Bumblebee is not active will automatically forward to your phone.
+
+Inspired by [https://github.com/mulka/buzzer](https://github.com/mulka/buzzer), I wanted to build something similar myself using some services that I was interested in giving a try.
 
 ## Getting Started 🎬
 
-1. Create a Twilio account and get a local number. You can sign up with this [link](www.twilio.com/referral/eLK56S) and we'll both get \$10 in Twilio Credit.
+1. Create a Twilio account and get a local number
 1. If you don't have an Azure account, you'll need to set that up as well as setup Azure CLI. You can follow the steps for authenticating with an Azure Service Principal that's listed in the [Serverless docs](https://www.serverless.com/framework/docs/providers/azure/guide/credentials#1-download-the-azure-cli-or-use-the-azure-cloud-shell)
 1. Create a Firebase project and set up a Firebase Realtime Database
 
