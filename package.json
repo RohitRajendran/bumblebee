@@ -1,7 +1,12 @@
 {
   "name": "bumblebee",
+  "author": {
+    "name": "Rohit Rajendran",
+    "email": "rohit.rajendran@outlook.com",
+    "url": "https://rohitrajendran.dev"
+  },
   "version": "1.0.0",
-  "description": "Azure Functions sample for the Serverless framework",
+  "description": "Automates buzzing people into your buildings",
   "scripts": {
     "test": "echo \"No tests yet...\"",
     "start": "sls offline && func host start",
@@ -11,7 +16,8 @@
   },
   "keywords": [
     "azure",
-    "serverless"
+    "serverless",
+    "twilio"
   ],
   "dependencies": {
     "firebase-admin": "8.12.1",
