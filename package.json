@@ -23,7 +23,7 @@
     "firebase-admin": "8.12.1",
     "got": "11.1.4",
     "moment": "2.26.0",
-    "moment-timezone": "0.5.28",
+    "moment-timezone": "0.5.31",
     "query-string": "6.12.1",
     "twilio": "3.43.1"
   },
