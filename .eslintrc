@@ -1,5 +1,9 @@
 {
+  "plugins": ["jest"],
   "extends": ["airbnb-base", "plugin:prettier/recommended"],
+  "env": {
+    "jest/globals": true
+  },
   "rules": {
     "no-param-reassign": "off",
     "no-console": "off"

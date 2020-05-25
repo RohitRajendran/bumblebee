@@ -1,7 +1,11 @@
 const queryString = require("query-string");
-const { validateTwilioWebhook } = require("../utils/helpers");
-const { findActiveAccessRequest, buzz, getUsers } = require("../utils/db");
-const { forwardCall } = require("../utils/phone");
+const { validateTwilioWebhook } = require("../../utils/helpers/helpers");
+const {
+  findActiveAccessRequest,
+  buzz,
+  getUsers,
+} = require("../../utils/db/db");
+const { forwardCall } = require("../../utils/phone/phone");
 
 const handler = async (context, req) => {
   context.log("Received call");

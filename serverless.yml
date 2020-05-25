@@ -23,7 +23,7 @@ deploy:
 provider:
   name: azure
   region: East US
-  runtime: nodejs10.X
+  runtime: nodejs12
   prefix: "bumblebee" # prefix of generated resource name
   subscriptionId: ${file(./env/local.json):AZURE_SUBSCRIPTION_ID, env:AZURE_SUBSCRIPTION_ID}
   stage: dev
@@ -87,10 +87,11 @@ package:
     # - exclude-me-dir/**
     - local.settings.json
     - .vscode/**
+    - /src/*.spec.js
 
 functions:
   sms:
-    handler: src/handlers/sms.handler
+    handler: src/handlers/sms/sms.handler
     events:
       - http: true
         x-azure-settings:
@@ -99,7 +100,7 @@ functions:
           authLevel: anonymous
 
   voice:
-    handler: src/handlers/voice.handler
+    handler: src/handlers/voice/voice.handler
     events:
       - http: true
         x-azure-settings:
