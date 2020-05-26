@@ -1,9 +1,7 @@
 const twilio = require("twilio");
 
 module.exports.forwardCall = (forwardNumbers) => {
-  const { VoiceResponse } = twilio.twiml;
-
-  const response = new VoiceResponse();
+  const response = new twilio.twiml.VoiceResponse();
   forwardNumbers.map((num) => response.dial(num));
 
   return response.toString();
