@@ -91,7 +91,7 @@ package:
 
 functions:
   sms:
-    handler: src/handlers/sms/sms.handler
+    handler: src/handlers/sms/sms.wrappedHandler
     events:
       - http: true
         x-azure-settings:
@@ -100,7 +100,7 @@ functions:
           authLevel: anonymous
 
   voice:
-    handler: src/handlers/voice/voice.handler
+    handler: src/handlers/voice/voice.wrappedHandler
     events:
       - http: true
         x-azure-settings:

@@ -8,7 +8,7 @@ const {
 const { forwardCall } = require("../../utils/phone/phone");
 
 const handler = async (context, req) => {
-  context.log("Received call");
+  console.log("Received call");
 
   const parsedBody = queryString.parse(req.body);
 
@@ -53,4 +53,5 @@ const handler = async (context, req) => {
   return context.done();
 };
 
-module.exports.handler = validateTwilioWebhook(handler, "voice");
+module.exports.wrappedHandler = validateTwilioWebhook(handler, "voice");
+module.exports.handler = handler;
