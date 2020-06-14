@@ -1,3 +1,4 @@
+const moment = require("moment-timezone");
 const db = require("./db");
 const { ref } = require("../firebase");
 const { pressBuzz } = require("../phone/phone");
@@ -59,7 +60,7 @@ describe("DB", () => {
     });
   });
 
-  describe("addRequest", () => {
+  describe("findActiveAccessRequest", () => {
     test("found request and is active", async () => {
       ref
         .child()
