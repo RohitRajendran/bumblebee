@@ -166,4 +166,18 @@ describe("DB", () => {
       expect(actual).toBeTruthy();
     });
   });
+
+  describe("cancel", () => {
+    test("valid", async () => {
+      await db.cancelActiveAccessRequest({
+        id: "id",
+        numBuzzes: 0,
+      });
+
+      expect(ref.child).toHaveBeenCalledWith("accessRequests");
+      expect(ref.child().update).toHaveBeenCalledWith({
+        "id/forceDisable": true,
+      });
+    });
+  });
 });

@@ -95,3 +95,12 @@ module.exports.buzz = async (activeRequest) => {
 
   return pressBuzz(forwardNumbers);
 };
+
+module.exports.cancelActiveAccessRequest = async (activeRequest) => {
+  console.log("Cancelling!");
+
+  const accessRequestsRef = ref.child("accessRequests");
+  await accessRequestsRef.update({
+    [`${activeRequest.id}/forceDisable`]: true,
+  });
+};
