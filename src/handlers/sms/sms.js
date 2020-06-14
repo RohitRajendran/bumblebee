@@ -8,6 +8,8 @@ const {
   cancelActiveAccessRequest,
 } = require("../../utils/db/db");
 
+const cancelKeywords = ["nevermind", "nvm"];
+
 const handler = async (context, req) => {
   console.log("Received SMS");
   // Reply with success message
@@ -16,7 +18,7 @@ const handler = async (context, req) => {
 
   const parsedBody = queryString.parse(req.body);
 
-  if (parsedBody.Body.toLowerCase() === "cancel") {
+  if (cancelKeywords.includes(parsedBody.Body.toLowerCase())) {
     const activeRequest = await findActiveAccessRequest();
 
     if (activeRequest) {
