@@ -1,10 +1,14 @@
 const queryString = require("query-string");
-const { validateTwilioWebhook } = require("../utils/helpers");
-const { findActiveAccessRequest, buzz, getUsers } = require("../utils/db");
-const { forwardCall } = require("../utils/phone");
+const { validateTwilioWebhook } = require("../../utils/helpers/helpers");
+const {
+  findActiveAccessRequest,
+  buzz,
+  getUsers,
+} = require("../../utils/db/db");
+const { forwardCall } = require("../../utils/phone/phone");
 
 const handler = async (context, req) => {
-  context.log("Received call");
+  console.log("Received call");
 
   const parsedBody = queryString.parse(req.body);
 
@@ -49,4 +53,5 @@ const handler = async (context, req) => {
   return context.done();
 };
 
-module.exports.handler = validateTwilioWebhook(handler, "voice");
+module.exports.wrappedHandler = validateTwilioWebhook(handler, "voice");
+module.exports.handler = handler;

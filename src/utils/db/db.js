@@ -1,16 +1,5 @@
-const admin = require("firebase-admin");
-const { pressBuzz } = require("./phone");
-
-admin.initializeApp({
-  credential: admin.credential.cert({
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-    privateKey: process.env.FIREBASE_PRIVATE_KEY,
-  }),
-  databaseURL: process.env.FIREBASE_URL,
-});
-const db = admin.database();
-const ref = db.ref();
+const { admin, ref } = require("../firebase");
+const { pressBuzz } = require("../phone/phone");
 
 module.exports.addUser = ({ firstName, lastName, phoneNumber }) => {
   const usersRef = ref.child("users");
@@ -105,4 +94,13 @@ module.exports.buzz = async (activeRequest) => {
   );
 
   return pressBuzz(forwardNumbers);
+};
+
+module.exports.cancelActiveAccessRequest = async (activeRequest) => {
+  console.log("Cancelling!");
+
+  const accessRequestsRef = ref.child("accessRequests");
+  await accessRequestsRef.update({
+    [`${activeRequest.id}/forceDisable`]: true,
+  });
 };

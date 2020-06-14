@@ -1,5 +1,6 @@
-# Env files
-env/local.json
+# Env files except for sample
+env/*
+!env/local.sample.json
 
 # Logs
 logs
