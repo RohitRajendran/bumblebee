@@ -43,7 +43,7 @@ describe("SMS handler", () => {
         .message(`There wasn't anything active to cancel.`)
         .toString();
       const context = {};
-      const req = { body: "?Body=cancel" };
+      const req = { body: "?Body=nvm" };
 
       await sms.handler(context, req);
 
