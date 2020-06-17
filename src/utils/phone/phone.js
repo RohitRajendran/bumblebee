@@ -27,7 +27,10 @@ module.exports.pressBuzz = async (forwardNumbers) => {
   const { VoiceResponse } = twilio.twiml;
 
   const response = new VoiceResponse();
-  response.play({ digits: 9 });
+  response.pause({
+    length: 2,
+  });
+  response.play({ digits: 999999 }); // Press 9 a bunch of times since it doesn't always work after one
 
   console.log("Buzzed!");
   return response.toString();
