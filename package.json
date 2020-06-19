@@ -24,7 +24,7 @@
   "dependencies": {
     "firebase-admin": "8.12.1",
     "got": "11.3.0",
-    "moment": "2.26.0",
+    "moment": "2.27.0",
     "moment-timezone": "0.5.31",
     "query-string": "6.13.1",
     "twilio": "3.46.0"
