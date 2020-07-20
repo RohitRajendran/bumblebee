@@ -30,7 +30,7 @@
     "twilio": "3.48.0"
   },
   "devDependencies": {
-    "@types/jest": "26.0.4",
+    "@types/jest": "26.0.5",
     "eslint": "7.4.0",
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-config-prettier": "6.11.0",
