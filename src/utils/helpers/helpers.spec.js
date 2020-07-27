@@ -1,7 +1,9 @@
 const twilio = require("twilio");
+const intercept = require("azure-function-log-intercept");
 const helpers = require("./helpers");
 
 jest.mock("twilio");
+jest.mock("azure-function-log-intercept");
 
 describe("Helpers", () => {
   describe("validateTwilioWebhook", () => {
@@ -20,6 +22,7 @@ describe("Helpers", () => {
       };
       await wrappedHandler(context, req);
 
+      expect(intercept).toBeCalled();
       expect(twilio.validateRequest).toBeCalledWith(
         process.env.TWILIO_AUTH_TOKEN,
         req.headers["x-twilio-signature"],
@@ -45,6 +48,7 @@ describe("Helpers", () => {
       };
       await wrappedHandler(context, req);
 
+      expect(intercept).toBeCalled();
       expect(twilio.validateRequest).toBeCalledWith(
         process.env.TWILIO_AUTH_TOKEN,
         req.headers["x-twilio-signature"],
@@ -71,6 +75,7 @@ describe("Helpers", () => {
       };
       await wrappedHandler(context, req);
 
+      expect(intercept).toBeCalled();
       expect(twilio.validateRequest).toBeCalledWith(
         process.env.TWILIO_AUTH_TOKEN,
         req.headers["x-twilio-signature"],
