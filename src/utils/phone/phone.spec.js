@@ -24,8 +24,11 @@ describe("Phone", () => {
       twilio.mockReturnValue(clientMock);
 
       const response = new twilio.twiml.VoiceResponse();
-      response.pause({ length: 2 });
-      response.play({ digits: 999999 });
+      response.pause({ length: 3 });
+      response.play({ digits: 9 });
+      response.pause({ length: 1 });
+      response.play({ digits: 9 });
+
       const expected = response.toString();
 
       const result = await phone.pressBuzz(forwardNumbers);
