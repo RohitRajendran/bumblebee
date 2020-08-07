@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "azure-function-log-intercept": "1.0.7",
-    "firebase-admin": "8.13.0",
+    "firebase-admin": "9.0.0",
     "got": "11.5.1",
     "moment": "2.27.0",
     "moment-timezone": "0.5.31",
@@ -31,17 +31,17 @@
     "twilio": "3.48.1"
   },
   "devDependencies": {
-    "@types/jest": "26.0.7",
-    "eslint": "7.5.0",
+    "@types/jest": "26.0.9",
+    "eslint": "7.6.0",
     "eslint-config-airbnb-base": "14.2.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-import": "2.22.0",
-    "eslint-plugin-jest": "23.18.0",
+    "eslint-plugin-jest": "23.20.0",
     "eslint-plugin-prettier": "3.1.4",
-    "jest": "26.1.0",
+    "jest": "26.2.2",
     "jest-mock-now": "1.3.0",
     "prettier": "2.0.5",
-    "serverless": "1.76.1",
+    "serverless": "1.78.1",
     "serverless-azure-functions": "2.0.13"
   }
 }

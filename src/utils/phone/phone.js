@@ -28,9 +28,13 @@ module.exports.pressBuzz = async (forwardNumbers) => {
 
   const response = new VoiceResponse();
   response.pause({
-    length: 2,
+    length: 3,
   });
-  response.play({ digits: 999999 }); // Press 9 a bunch of times since it doesn't always work after one
+  response.play({ digits: 9 }); // Press 9 to unlock
+  response.pause({
+    length: 1,
+  });
+  response.play({ digits: 9 }); // Try pressing 9 again since it doesn't always work after the first attempt
 
   console.log("Buzzed!");
   return response.toString();
