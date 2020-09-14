@@ -41,7 +41,7 @@
     "jest": "26.4.2",
     "jest-mock-now": "1.3.0",
     "prettier": "2.0.5",
-    "serverless": "1.79.0",
+    "serverless": "2.0.0",
     "serverless-azure-functions": "2.0.13"
   }
 }
