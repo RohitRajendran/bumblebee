@@ -6,6 +6,8 @@ Have one of those directories in your building that calls your phone to buzz peo
 
 Inspired by [https://github.com/mulka/buzzer](https://github.com/mulka/buzzer), I wanted to build something similar myself using some services that I was interested in giving a try.
 
+![Example Image](./example-image.jpeg)
+
 ## Getting Started 🎬
 
 1. Create a Twilio account and get a local number
