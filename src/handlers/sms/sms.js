@@ -1,7 +1,9 @@
 const queryString = require("query-string");
 const twilio = require("twilio");
-const moment = require("moment-timezone");
-const { validateTwilioWebhook } = require("../../utils/helpers/helpers");
+const {
+  validateTwilioWebhook,
+  extractBumblebeeActiveInterval
+} = require("../../utils/helpers/helpers");
 const {
   addRequest,
   findActiveAccessRequest,
@@ -30,14 +32,14 @@ const handler = async (context, req) => {
       twiml.message(`There wasn't anything active to cancel.`);
     }
   } else {
-    // Add parsed minutes to current time as EST
-    const toTimestamp = moment()
-      .tz("America/New_York")
-      .add(parseInt(parsedBody.Body, 10), "m");
+    const [fromTimestamp, toTimestamp] = extractBumblebeeActiveInterval(
+      parsedBody.Body
+    );
 
     // Add request to DB
     await addRequest({
       fromPhoneNumber: parsedBody.From,
+      fromTimestamp: fromTimestamp.From,
       toTimestamp: toTimestamp.toDate(),
     });
 

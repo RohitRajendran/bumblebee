@@ -1,6 +1,7 @@
 const twilio = require("twilio");
 const queryString = require("query-string");
 const intercept = require("azure-function-log-intercept");
+const moment = require("moment-timezone");
 
 module.exports.validateTwilioWebhook = (handler, endpointUrl) => async (
   context,
@@ -43,4 +44,18 @@ module.exports.validateTwilioWebhook = (handler, endpointUrl) => async (
       context.done();
     }
   }
+};
+
+module.exports.extractBumblebeeActiveInterval = message => async () => {
+  // Todo: Add support to create Add Request from and to time for various intervals.
+
+  // Add parsed minutes to current time as EST
+  const fromTimestamp = moment().tz("America/New_York");
+
+  // Add parsed minutes to current time as EST
+  const toTimestamp = moment()
+    .tz("America/New_York")
+    .add(parseInt(message, 10), "m");
+
+  return [fromTimestamp, toTimestamp];
 };
