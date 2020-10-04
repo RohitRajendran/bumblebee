@@ -28,7 +28,7 @@
     "moment": "2.29.0",
     "moment-timezone": "0.5.31",
     "query-string": "6.13.5",
-    "twilio": "3.49.3"
+    "twilio": "3.49.4"
   },
   "devDependencies": {
     "@types/jest": "26.0.10",
