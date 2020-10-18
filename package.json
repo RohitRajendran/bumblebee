@@ -27,7 +27,7 @@
     "got": "11.7.0",
     "moment": "2.29.1",
     "moment-timezone": "0.5.31",
-    "query-string": "6.13.5",
+    "query-string": "6.13.6",
     "twilio": "3.50.0"
   },
   "devDependencies": {
