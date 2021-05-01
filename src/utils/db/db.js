@@ -21,6 +21,7 @@ module.exports.getUsers = async () => {
 
 module.exports.addRequest = async ({
   fromPhoneNumber,
+  fromTimestamp,
   toTimestamp,
   maxBuzzes = 1,
 }) => {
@@ -39,6 +40,7 @@ module.exports.addRequest = async ({
         userId: key,
         numBuzzes: 0,
         maxBuzzes,
+        fromTimestamp: fromTimestamp.getTime(),
         toTimestamp: toTimestamp.getTime(),
         createdTimestamp: admin.database.ServerValue.TIMESTAMP,
         forceDisable: false,
@@ -51,6 +53,7 @@ module.exports.addRequest = async ({
 
 module.exports.findActiveAccessRequest = async () => {
   console.log(`Searching for active requests`);
+  // ToDo: Will Need Change In Query to accomodate Time Range
   const snapshot = await ref
     .child("accessRequests")
     .orderByChild("toTimestamp")

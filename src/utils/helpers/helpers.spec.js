@@ -88,3 +88,5 @@ describe("Helpers", () => {
     });
   });
 });
+
+// Todo: Add Tests here for extractBumblebeeActiveInterval Function that parses Add Request
