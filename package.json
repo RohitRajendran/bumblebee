@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "azure-function-log-intercept": "1.0.9",
-    "firebase-admin": "9.7.0",
+    "firebase-admin": "9.8.0",
     "got": "11.8.2",
     "moment": "2.29.1",
     "moment-timezone": "0.5.33",
