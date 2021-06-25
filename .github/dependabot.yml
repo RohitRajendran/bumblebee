@@ -1,0 +1,15 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 99
+  labels:
+  - dependencies
+  versioning-strategy: increase
+  ignore:
+  - dependency-name: serverless-azure-functions
+    versions:
+    - "> 1.0.2.pre.19"
+    - "< 1.1"
