@@ -8,7 +8,7 @@ import MessagingResponse = require("twilio/lib/twiml/MessagingResponse");
 export const validateTwilioWebhook =
   (
     handler: (req: Request, resp: Response) => void | Promise<void>,
-    endpointUrl?: string
+    endpointUrl: string
   ) =>
   async (request: Request, response: Response) => {
     logger.info("Received webhook request", JSON.stringify(request.body));
