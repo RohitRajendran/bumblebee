@@ -20,7 +20,7 @@ jobs:
         run: cd ./functions && npm ci
 
       - name: Lint
-        run: npm run lint
+        run: cd ./functions && npm run lint
 
       - name: Test
-        run: npm test
+        run: cd ./functions && npm test
