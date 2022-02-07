@@ -19,17 +19,20 @@ jobs:
         run: npm install -g firebase-tools && cd ./functions && npm ci
 
       - name: Set Up Config
-        run: npm run firebase:unsetConfig --token "$FIREBASE_TOKEN" && npm run firebase:setConfig --token "$FIREBASE_TOKEN" BUZZER_NUMBER="$BUZZER_NUMBER" FIREBASE_URL="$FIREBASE_URL" FIREBASE_PROJECT_ID="$FIREBASE_PROJECT_ID" FIREBASE_CLIENT_EMAIL="$FIREBASE_CLIENT_EMAIL" TWILIO_ACCOUNT_SID="$TWILIO_ACCOUNT_SID" TWILIO_AUTH_TOKEN="$TWILIO_AUTH_TOKEN" TWILIO_NUMBER="$TWILIO_NUMBER" URL="$URL"
+        run: firebase functions:config:unset && npm run firebase:setConfig BUZZER_NUMBER="$BUZZER_NUMBER" FIREBASE_URL="$FIREBASE_URL" FIREBASE_PROJECT_ID="$FIREBASE_PROJECT_ID" FIREBASE_CLIENT_EMAIL="$FIREBASE_CLIENT_EMAIL" TWILIO_ACCOUNT_SID="$TWILIO_ACCOUNT_SID" TWILIO_AUTH_TOKEN="$TWILIO_AUTH_TOKEN" TWILIO_NUMBER="$TWILIO_NUMBER" URL="$URL"
         env:
           BUZZER_NUMBER: ${{ secrets.BUZZER_NUMBER }}
           FIREBASE_URL: ${{ secrets.FIREBASE_URL }}
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
           FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
           FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
           TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
           TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
           TWILIO_NUMBER: ${{ secrets.TWILIO_NUMBER }}
           URL: ${{ secrets.URL }}
 
       - name: Deploy
-        run: npm run deploy --token "$FIREBASE_TOKEN"
+        run: npm run deploy
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
