@@ -26,7 +26,7 @@ describe("Helpers", () => {
       expect(twilio.validateRequest).toBeCalledWith(
         twilioauthtoken,
         req.headers["x-twilio-signature"],
-        `${url}/api/test`,
+        `${url}/test`,
         { isValid: "true" }
       );
       expect(mockHandler).toHaveBeenCalledTimes(1);
@@ -56,7 +56,7 @@ describe("Helpers", () => {
       expect(twilio.validateRequest).toBeCalledWith(
         twilioauthtoken,
         req.headers["x-twilio-signature"],
-        `${url}/api/test`,
+        `${url}/test`,
         { isValid: "false" }
       );
       expect(mockHandler).not.toHaveBeenCalled();
@@ -87,7 +87,7 @@ describe("Helpers", () => {
       expect(twilio.validateRequest).toBeCalledWith(
         twilioauthtoken,
         req.headers["x-twilio-signature"],
-        `${url}/api/test`,
+        `${url}/test`,
         { isValid: "true" }
       );
       expect(mockHandler).toHaveBeenCalledTimes(1);

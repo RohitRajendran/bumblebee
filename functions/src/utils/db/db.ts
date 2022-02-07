@@ -93,7 +93,14 @@ export const addRequest = async ({
   }
 };
 
-export const findActiveAccessRequest = async () => {
+/**
+ * Checks DB for active requests
+ * @returns active request info
+ */
+export const findActiveAccessRequest = async (): Promise<{
+  id: string;
+  numBuzzes: number;
+} | null> => {
   logger.info(`Searching for active requests`);
   const snapshot = await ref
     .child("accessRequests")
@@ -124,10 +131,14 @@ export const findActiveAccessRequest = async () => {
   return null;
 };
 
+/**
+ * Buzzes in guest and sends confirmation texts
+ * @param activeRequest - Active request id and number of buzzes so far
+ */
 export const buzz = async (activeRequest: {
   id: string;
   numBuzzes: number;
-}) => {
+}): Promise<string> => {
   logger.info("Buzzing!");
 
   const accessRequestsRef = ref.child("accessRequests");
@@ -143,9 +154,13 @@ export const buzz = async (activeRequest: {
   return pressBuzz(forwardNumbers);
 };
 
+/**
+ * Cancels the given active request
+ * @param activeRequest - id of activeRequest
+ */
 export const cancelActiveAccessRequest = async (activeRequest: {
   id: string;
-}) => {
+}): Promise<void> => {
   logger.info("Cancelling!");
 
   const accessRequestsRef = ref.child("accessRequests");

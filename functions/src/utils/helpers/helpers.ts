@@ -19,7 +19,7 @@ export const validateTwilioWebhook =
     const requestIsValid = validateRequest(
       config.twilioauthtoken ?? "",
       twilioSignature,
-      `${config.url}/api/${endpointUrl}`,
+      `${config.url}/${endpointUrl}`,
       params
     );
 
