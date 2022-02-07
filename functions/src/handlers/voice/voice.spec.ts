@@ -1,5 +1,5 @@
 import { Request, Response } from "firebase-functions/v1";
-import { buzzerNumber } from "../../../../env/local.sample.json";
+import { buzzernumber } from "../../../../env/local.sample.json";
 import { buzz, findActiveAccessRequest, getUsers } from "../../utils/db/db";
 import { forwardCall } from "../../utils/phone/phone";
 import * as voice from "./voice";
@@ -16,7 +16,7 @@ describe("Voice handler", () => {
       setHeader: jest.fn(),
       send: jest.fn(),
     } as unknown as Response;
-    const req = { body: `?From=${buzzerNumber}` } as Request;
+    const req = { body: `?From=${buzzernumber}` } as Request;
 
     await voice.handler(req, res);
 
@@ -34,7 +34,7 @@ describe("Voice handler", () => {
       setHeader: jest.fn(),
       send: jest.fn(),
     } as unknown as Response;
-    const req = { body: `?From=${buzzerNumber}` } as Request;
+    const req = { body: `?From=${buzzernumber}` } as Request;
 
     await voice.handler(req, res);
 

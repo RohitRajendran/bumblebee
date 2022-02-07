@@ -1,6 +1,6 @@
 import { Request, Response } from "firebase-functions/v1";
 import * as twilio from "twilio";
-import { twilioAuthToken, url } from "../../../../env/local.sample.json";
+import { twilioauthtoken, url } from "../../../../env/local.sample.json";
 import { validateTwilioWebhook } from "./helpers";
 
 jest.mock("twilio");
@@ -24,7 +24,7 @@ describe("Helpers", () => {
       await wrappedHandler(req, res);
 
       expect(twilio.validateRequest).toBeCalledWith(
-        twilioAuthToken,
+        twilioauthtoken,
         req.headers["x-twilio-signature"],
         `${url}/api/test`,
         { isValid: "true" }
@@ -54,7 +54,7 @@ describe("Helpers", () => {
       await wrappedHandler(req, res);
 
       expect(twilio.validateRequest).toBeCalledWith(
-        twilioAuthToken,
+        twilioauthtoken,
         req.headers["x-twilio-signature"],
         `${url}/api/test`,
         { isValid: "false" }
@@ -85,7 +85,7 @@ describe("Helpers", () => {
       await wrappedHandler(req, res);
 
       expect(twilio.validateRequest).toBeCalledWith(
-        twilioAuthToken,
+        twilioauthtoken,
         req.headers["x-twilio-signature"],
         `${url}/api/test`,
         { isValid: "true" }

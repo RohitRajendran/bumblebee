@@ -21,7 +21,7 @@ describe("Phone", () => {
 
       return {
         ...config,
-        twilioAccountSID: "AC1234", // SID needs to start with AC
+        twilioaccountsid: "AC1234", // SID needs to start with AC
       };
     });
 

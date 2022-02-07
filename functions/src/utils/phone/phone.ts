@@ -10,7 +10,7 @@ export const forwardCall = (forwardNumbers: string[]): string => {
 };
 
 export const pressBuzz = async (forwardNumbers: string[]): Promise<string> => {
-  const client = new Twilio(config.twilioAccountSID, config.twilioAuthToken);
+  const client = new Twilio(config.twilioaccountsid, config.twilioauthtoken);
 
   logger.info("Sending buzzed in SMS");
 
@@ -18,7 +18,7 @@ export const pressBuzz = async (forwardNumbers: string[]): Promise<string> => {
     forwardNumbers.map(async (number) => {
       client.messages.create({
         body: "Buzzing in! 🐝",
-        from: config.twilioNumber,
+        from: config.twilionumber,
         to: number,
       });
     })

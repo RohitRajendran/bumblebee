@@ -1,11 +1,11 @@
 {
-  "buzzerNumber": "BUZZER_NUMBER",
-  "firebaseURL": "FIREBASE_URL",
-  "firebaseProjectId": "FIREBASE_PROJECT_ID",
-  "firebaseClientEmail": "FIREBASE_CLIENT_EMAIL",
-  "firebasePrivateKey": "FIREBASE_PRIVATE_KEY",
-  "twilioAccountSID": "TWILIO_ACCOUNT_SID",
-  "twilioAuthToken": "TWILIO_AUTH_TOKEN",
-  "twilioNumber": "TWILIO_NUMBER",
+  "buzzernumber": "BUZZER_NUMBER",
+  "firebaseurl": "FIREBASE_URL",
+  "firebaseprojectid": "FIREBASE_PROJECT_ID",
+  "firebaseclientemail": "FIREBASE_CLIENT_EMAIL",
+  "firebaseprivatekey": "FIREBASE_PRIVATE_KEY",
+  "twilioaccountsid": "TWILIO_ACCOUNT_SID",
+  "twilioauthtoken": "TWILIO_AUTH_TOKEN",
+  "twilionumber": "TWILIO_NUMBER",
   "url": "URL"
 }
