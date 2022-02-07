@@ -17,6 +17,12 @@ export const validateTwilioWebhook =
     const twilioSignature = request.headers["x-twilio-signature"] as string;
     const params = parse(request.body);
 
+    logger.info("Validating request", {
+      twilioSignature,
+      url: `${config.url}/${endpointUrl}`,
+      params,
+    });
+
     const requestIsValid = validateRequest(
       config.twilioauthtoken ?? "",
       twilioSignature,
