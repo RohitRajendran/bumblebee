@@ -14,7 +14,9 @@
     "start": "concurrently --kill-others \"cd ./functions && npm:watch\" \"cd ./functions && npm:build && firebase emulators:start\"",
     "deploy": "firebase deploy",
     "lint": "eslint 'src/**/*.js' && prettier -l './src/**/*.js' 'serverless.yml' 'README.md'",
-    "format": "prettier --write './src/**/*.js' 'serverless.yml' 'README.md'"
+    "format": "prettier --write './src/**/*.js' 'serverless.yml' 'README.md'",
+    "firebase:unsetConfig": "firebase functions:config:unset env",
+    "firebase:setConfig": "firebase functions:config:set"
   },
   "keywords": [
     "azure",

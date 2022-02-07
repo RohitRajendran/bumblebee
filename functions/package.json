@@ -6,8 +6,6 @@
     "watch": "tsc --watch",
     "start": "npm run firebase:unsetConfig && npm run firebase:setConfig && concurrently --kill-others \"npm:watch\" \"npm:build && firebase emulators:start\"",
     "shell": "npm run build && firebase functions:shell",
-    "firebase:unsetConfig": "firebase functions:config:unset env",
-    "firebase:setConfig": "firebase functions:config:set env=`${cat ../env/local.json'}`",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
     "test": "jest",
