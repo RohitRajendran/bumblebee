@@ -17,6 +17,7 @@ describe("Phone", () => {
 
   describe("pressBuzz", () => {
     jest.mock("../envConfig.js", () => {
+      // eslint-disable-line
       const config = require("../../env/local.sample.json");
 
       return {
