@@ -28,7 +28,7 @@ describe("SMS handler", () => {
       setHeader: jest.fn(),
       send: jest.fn(),
     } as unknown as Response;
-    const req = { body: "?Body=60&From=1234567890" } as Request;
+    const req = { body: { Body: "60", From: "1234567890" } } as Request;
 
     await sms.handler(req, res);
 
@@ -46,7 +46,7 @@ describe("SMS handler", () => {
         setHeader: jest.fn(),
         send: jest.fn(),
       } as unknown as Response;
-      const req = { body: "?Body=nvm&From=1234567890" } as Request;
+      const req = { body: { Body: "nvm", From: "1234567890" } } as Request;
 
       await sms.handler(req, res);
 
@@ -64,7 +64,7 @@ describe("SMS handler", () => {
         setHeader: jest.fn(),
         send: jest.fn(),
       } as unknown as Response;
-      const req = { body: "?Body=nvm&From=1234567890" } as Request;
+      const req = { body: { Body: "nvm", From: "1234567890" } } as Request;
 
       await sms.handler(req, res);
 
@@ -83,7 +83,7 @@ describe("SMS handler", () => {
         setHeader: jest.fn(),
         send: jest.fn(),
       } as unknown as Response;
-      const req = { body: "?From=1234567890" } as Request;
+      const req = { body: { From: "1234567890" } } as Request;
 
       await sms.handler(req, res);
 
@@ -101,7 +101,7 @@ describe("SMS handler", () => {
         setHeader: jest.fn(),
         send: jest.fn(),
       } as unknown as Response;
-      const req = { body: "?Body=nvm" } as Request;
+      const req = { body: { Body: "60" } } as Request;
 
       await sms.handler(req, res);
 

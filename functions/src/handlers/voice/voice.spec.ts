@@ -16,7 +16,7 @@ describe("Voice handler", () => {
       setHeader: jest.fn(),
       send: jest.fn(),
     } as unknown as Response;
-    const req = { body: `?From=${buzzernumber}` } as Request;
+    const req = { body: { From: buzzernumber } } as Request;
 
     await voice.handler(req, res);
 
@@ -34,7 +34,7 @@ describe("Voice handler", () => {
       setHeader: jest.fn(),
       send: jest.fn(),
     } as unknown as Response;
-    const req = { body: `?From=${buzzernumber}` } as Request;
+    const req = { body: { From: buzzernumber } } as Request;
 
     await voice.handler(req, res);
 
@@ -51,7 +51,7 @@ describe("Voice handler", () => {
       setHeader: jest.fn(),
       send: jest.fn(),
     } as unknown as Response;
-    const req = { body: `?From=nope` } as Request;
+    const req = { body: { From: "nope" } } as Request;
 
     await voice.handler(req, res);
 

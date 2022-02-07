@@ -1,6 +1,5 @@
 import { https, logger, Request, Response } from "firebase-functions";
 import * as moment from "moment-timezone";
-import { parse } from "query-string";
 import { twiml } from "twilio";
 import {
   addRequest,
@@ -24,7 +23,7 @@ export const handler = async (request: Request, response: Response) => {
 
   // Reply with success message
   const twimlResponse = new twiml.MessagingResponse();
-  const parsedBody = parse(request.body);
+  const parsedBody = request.body;
 
   // TODO: Create helper function for this
   const bodyText =

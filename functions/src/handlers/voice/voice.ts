@@ -1,5 +1,4 @@
-import { Request, Response, logger, https } from "firebase-functions";
-import { parse } from "query-string";
+import { https, logger, Request, Response } from "firebase-functions";
 import { buzz, findActiveAccessRequest, getUsers } from "../../utils/db/db";
 import config from "../../utils/envConfig";
 import {
@@ -17,7 +16,7 @@ export const handler = async (request: Request, response: Response) => {
   logger.info("Received call");
 
   // Reply with success message
-  const parsedBody = parse(request.body);
+  const parsedBody = request.body;
 
   // Check if coming from buzzer
   if (parsedBody.From === config.buzzernumber) {
