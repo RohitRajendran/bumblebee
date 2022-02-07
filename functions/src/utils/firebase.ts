@@ -1,8 +1,10 @@
-import { initializeApp, database } from "firebase-admin";
+import { App, initializeApp } from "firebase-admin/app";
+import { getDatabase } from "firebase-admin/database";
 
-initializeApp();
+// Initialize Firebase
+const app: App = initializeApp();
 
-const db = database();
+const db = getDatabase(app);
 const ref = db.ref();
 
 export { ref };
