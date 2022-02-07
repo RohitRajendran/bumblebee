@@ -1,0 +1,14 @@
+{
+  "dockerFile": "./Dockerfile",
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "github.vscode-pull-request-github",
+    "eamodio.gitlens",
+    "ms-vsliveshare.vsliveshare-pack",
+    "ms-azuretools.vscode-docker"
+  ],
+  "forwardPorts": [8000],
+  "postCreateCommand": "npm install -g firebase-tools && cd ./functions && npm i"
+}

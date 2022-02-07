@@ -5,7 +5,7 @@ name: Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [main, firebase]
 
 jobs:
   deploy:
@@ -18,13 +18,9 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Deploy
-        run: npm run deploy
+      - name: Set Up Config
+        run: npm run firebase:unsetConfig && npm run firebase:setConfig BUZZER_NUMBER="$BUZZER_NUMBER" FIREBASE_URL="$FIREBASE_URL" FIREBASE_PROJECT_ID="$FIREBASE_PROJECT_ID" FIREBASE_CLIENT_EMAIL="$FIREBASE_CLIENT_EMAIL" TWILIO_ACCOUNT_SID="$TWILIO_ACCOUNT_SID" TWILIO_AUTH_TOKEN="$TWILIO_AUTH_TOKEN" TWILIO_NUMBER="$TWILIO_NUMBER" URL="$URL"
         env:
-          AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-          AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-          AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-          AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
           BUZZER_NUMBER: ${{ secrets.BUZZER_NUMBER }}
           FIREBASE_URL: ${{ secrets.FIREBASE_URL }}
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
@@ -34,3 +30,6 @@ jobs:
           TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
           TWILIO_NUMBER: ${{ secrets.TWILIO_NUMBER }}
           URL: ${{ secrets.URL }}
+
+      - name: Deploy
+        run: npm run deploy
