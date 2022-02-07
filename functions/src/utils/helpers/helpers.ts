@@ -1,6 +1,5 @@
 import { logger } from "firebase-functions";
 import { Request, Response } from "firebase-functions/v1";
-import { parse } from "query-string";
 import { validateRequest } from "twilio";
 import config from "../envConfig";
 import MessagingResponse = require("twilio/lib/twiml/MessagingResponse");
