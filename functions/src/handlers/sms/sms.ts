@@ -44,7 +44,7 @@ export const handler = async (request: Request, response: Response) => {
       : typeof parsedBody.From === "string"
       ? parsedBody.From
       : undefined;
-  console.log(bodyText);
+
   if (bodyText === undefined || fromText === undefined) {
     // TODO: Create helper util
     twimlResponse.message("Hmm, I couldn't understand what you said.");
@@ -66,12 +66,11 @@ export const handler = async (request: Request, response: Response) => {
     let parsedTime;
     try {
       parsedTime = parseInt(bodyText, 10);
-      console.log(parsedTime);
-      if (typeof parsedTime !== "number" || parsedTime < 0) {
+
+      if (isNaN(parsedTime) || parsedTime < 0) {
         throw Error("Invalid time");
       }
     } catch (err) {
-      console.log(err);
       logger.error(err);
       twimlResponse.message("Hmm, I couldn't understand what you said.");
 
