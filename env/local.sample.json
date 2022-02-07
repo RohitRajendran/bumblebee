@@ -1,6 +1,6 @@
 {
   "buzzernumber": "BUZZER_NUMBER",
-  "firebaseurl": "FIREBASE_URL",
+  "firebaseprojecturl": "FIREBASE_URL",
   "firebaseprojectid": "FIREBASE_PROJECT_ID",
   "firebaseclientemail": "FIREBASE_CLIENT_EMAIL",
   "firebaseprivatekey": "FIREBASE_PRIVATE_KEY",
