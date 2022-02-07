@@ -4,7 +4,7 @@
     "lint": "eslint --ext .js,.ts .",
     "build": "tsc",
     "watch": "tsc --watch",
-    "start": "npm run firebase:unsetConfig && npm run firebase:setConfig && concurrently --kill-others \"npm:watch\" \"npm:build && firebase emulators:start\"",
+    "start": "concurrently --kill-others \"npm:watch\" \"npm:build && firebase emulators:start\"",
     "shell": "npm run build && firebase functions:shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
