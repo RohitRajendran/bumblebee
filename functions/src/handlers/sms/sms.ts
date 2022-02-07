@@ -92,5 +92,5 @@ export const handler = async (request: Request, response: Response) => {
   return sendTwimlResponse(response, twimlResponse);
 };
 
-const wrappedHandler = validateTwilioWebhook(handler);
+const wrappedHandler = validateTwilioWebhook(handler, "sms");
 export default https.onRequest(wrappedHandler);

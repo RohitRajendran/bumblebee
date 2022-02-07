@@ -88,7 +88,7 @@ export const addRequest = async ({
         forceDisable: false,
       };
 
-      accessRequestsRef.push().set(request);
+      await accessRequestsRef.push().set(request);
     });
   }
 };

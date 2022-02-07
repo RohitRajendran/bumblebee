@@ -11,9 +11,10 @@ export const validateTwilioWebhook =
     endpointUrl?: string
   ) =>
   async (request: Request, response: Response) => {
-    logger.info("Validating webhook request", JSON.stringify(request.body));
-    const twilioSignature = request.headers["x-twilio-signature"] as string;
+    logger.info("Received webhook request", JSON.stringify(request.body));
+    logger.info("Request headers:", JSON.stringify(request.headers));
 
+    const twilioSignature = request.headers["x-twilio-signature"] as string;
     const params = parse(request.body);
 
     const requestIsValid = validateRequest(

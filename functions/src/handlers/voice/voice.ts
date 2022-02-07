@@ -49,5 +49,5 @@ export const handler = async (request: Request, response: Response) => {
   return sendTwimlResponse(response, twiml);
 };
 
-const wrappedHandler = validateTwilioWebhook(handler);
+const wrappedHandler = validateTwilioWebhook(handler, "voice");
 export default https.onRequest(wrappedHandler);
