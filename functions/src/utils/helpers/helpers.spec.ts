@@ -1,6 +1,6 @@
 import { Request, Response } from "firebase-functions/v1";
 import * as twilio from "twilio";
-import config from "../envConfig";
+import { twilioAuthToken, url } from "../../../../env/local.sample.json";
 import { validateTwilioWebhook } from "./helpers";
 
 jest.mock("twilio");
@@ -24,9 +24,9 @@ describe("Helpers", () => {
       await wrappedHandler(req, res);
 
       expect(twilio.validateRequest).toBeCalledWith(
-        config.TWILIO_AUTH_TOKEN,
+        twilioAuthToken,
         req.headers["x-twilio-signature"],
-        `${config.URL}/api/test`,
+        `${url}/api/test`,
         { isValid: "true" }
       );
       expect(mockHandler).toHaveBeenCalledTimes(1);
@@ -54,9 +54,9 @@ describe("Helpers", () => {
       await wrappedHandler(req, res);
 
       expect(twilio.validateRequest).toBeCalledWith(
-        config.TWILIO_AUTH_TOKEN,
+        twilioAuthToken,
         req.headers["x-twilio-signature"],
-        `${config.URL}/api/test`,
+        `${url}/api/test`,
         { isValid: "false" }
       );
       expect(mockHandler).not.toHaveBeenCalled();
@@ -85,9 +85,9 @@ describe("Helpers", () => {
       await wrappedHandler(req, res);
 
       expect(twilio.validateRequest).toBeCalledWith(
-        config.TWILIO_AUTH_TOKEN,
+        twilioAuthToken,
         req.headers["x-twilio-signature"],
-        `${config.URL}/api/test`,
+        `${url}/api/test`,
         { isValid: "true" }
       );
       expect(mockHandler).toHaveBeenCalledTimes(1);

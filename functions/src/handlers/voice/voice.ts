@@ -20,7 +20,7 @@ export const handler = async (request: Request, response: Response) => {
   const parsedBody = parse(request.body);
 
   // Check if coming from buzzer
-  if (parsedBody.From === config.BUZZER_NUMBER) {
+  if (parsedBody.From === config.buzzerNumber) {
     logger.info("Call from buzzer, checking if bumblebee is active");
     // Check if bumblebee is active
     const activeRequest = await findActiveAccessRequest();

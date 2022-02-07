@@ -1,5 +1,4 @@
 import * as twilio from "twilio";
-import config from "../envConfig";
 import { forwardCall, pressBuzz } from "./phone";
 
 describe("Phone", () => {
@@ -17,12 +16,13 @@ describe("Phone", () => {
   });
 
   describe("pressBuzz", () => {
-    const origSID = config.TWILIO_ACCOUNT_SID;
-    beforeAll(() => {
-      config.TWILIO_ACCOUNT_SID = "AC1234";
-    });
-    afterAll(() => {
-      config.TWILIO_ACCOUNT_SID = origSID;
+    jest.mock("../src/utils/envConfig.js", () => {
+      const config = require("../../env/local.sample.json");
+
+      return {
+        ...config,
+        twilioAccountSID: "AC1234", // SID needs to start with AC
+      };
     });
 
     test("valid", async () => {
