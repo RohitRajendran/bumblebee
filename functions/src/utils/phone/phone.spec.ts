@@ -16,7 +16,7 @@ describe("Phone", () => {
   });
 
   describe("pressBuzz", () => {
-    jest.mock("../src/utils/envConfig.js", () => {
+    jest.mock("../envConfig.js", () => {
       const config = require("../../env/local.sample.json");
 
       return {

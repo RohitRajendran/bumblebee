@@ -1,11 +1,11 @@
 import { config as fsConfig } from "firebase-functions";
 import { existsSync } from "fs";
 
-let config = fsConfig().env;
+let config = fsConfig().bb;
 
 if (process.env.NODE_ENV !== "production") {
-  if (existsSync("../env/local.json")) {
-    import env from "../../../env/local.json";
+  if (existsSync("../../../env/local.json")) {
+    const env = require("../../../env/local.json");
 
     config = env;
   }
