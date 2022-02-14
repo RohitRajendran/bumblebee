@@ -1,0 +1,12 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "accessRequests": {
+      ".indexOn": ["toTimestamp"]
+    },
+    "users": {
+      ".indexOn": ["phoneNumber"]
+    }
+  }
+}
