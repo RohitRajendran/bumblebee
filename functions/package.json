@@ -18,7 +18,7 @@
     "firebase-functions": "3.17.1",
     "moment": "2.29.1",
     "moment-timezone": "0.5.34",
-    "twilio": "3.73.1"
+    "twilio": "3.74.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "5.10.2",
