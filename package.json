@@ -22,7 +22,7 @@
     "buzzer"
   ],
   "dependencies": {
-    "concurrently": "7.1.0",
+    "concurrently": "7.2.0",
     "firebase-admin": "10.0.2"
   }
 }
