@@ -17,14 +17,14 @@
     "firebase-admin": "10.0.2",
     "firebase-functions": "3.20.0",
     "moment": "2.29.3",
-    "moment-timezone": "0.5.34",
+    "moment-timezone": "0.5.37",
     "twilio": "3.76.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "5.17.0",
     "@typescript-eslint/parser": "5.17.0",
     "concurrently": "7.1.0",
-    "eslint": "8.12.0",
+    "eslint": "8.25.0",
     "eslint-config-google": "0.14.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
