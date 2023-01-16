@@ -21,7 +21,7 @@
     "twilio": "3.84.0"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "5.40.0",
+    "@typescript-eslint/eslint-plugin": "5.48.2",
     "@typescript-eslint/parser": "5.48.1",
     "concurrently": "7.4.0",
     "eslint": "8.31.0",
