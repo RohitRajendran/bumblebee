@@ -17,7 +17,7 @@
     "firebase-admin": "11.5.0",
     "firebase-functions": "4.2.1",
     "moment": "2.29.4",
-    "moment-timezone": "0.5.40",
+    "moment-timezone": "0.5.41",
     "twilio": "4.7.2"
   },
   "devDependencies": {
